@@ -2,6 +2,8 @@ package com.alves.authenticationwithjwtapi.services;
 
 import java.util.UUID;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
   private final UserRepository userRepository;
   private final PasswordEncoder passwordEncoder;
@@ -40,6 +42,13 @@ public class UserService {
     user.setVerificationCode(null);
     user.setEnabled(true);
     userRepository.save(user);
+  }
+
+  // load by email*
+  @Override
+  public UserDetails loadUserByUsername(String email) {
+    return userRepository.findByEmail(email)
+      .orElseThrow(() -> new UserNotFoundException("email", email));
   }
   
 }
