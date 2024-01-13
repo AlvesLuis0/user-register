@@ -1,7 +1,8 @@
-package com.alves.authenticationwithjwtapi;
+package com.alves.authenticationwithjwtapi.services;
 
 import java.util.UUID;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.alves.authenticationwithjwtapi.dtos.UserResponse;
@@ -16,11 +17,12 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
   private final UserRepository userRepository;
+  private final PasswordEncoder passwordEncoder;
 
   public UserResponse registerUser(User user) {
     userRepository.findByEmail(user.getEmail())
       .orElseThrow(() -> new UserNotFoundException("email", user.getEmail()));
-    user.setPassword("encrypted-password"); // TODO: encrypt password
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setEnabled(false);
     user.setVerificationCode(UUID.randomUUID());
     // TODO: send email
