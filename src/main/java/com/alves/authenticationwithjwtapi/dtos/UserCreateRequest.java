@@ -26,7 +26,7 @@ public record UserCreateRequest(
 ) {
 
   public User toModel() {
-    User user = new User();
+    var user = new User();
     user.setName(name);
     user.setEmail(email);
     user.setPassword(password);
