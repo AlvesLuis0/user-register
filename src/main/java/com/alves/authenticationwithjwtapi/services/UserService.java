@@ -20,15 +20,26 @@ import lombok.RequiredArgsConstructor;
 public class UserService implements UserDetailsService {
 
   private final UserRepository userRepository;
+  private final MailService mailService;
   private final PasswordEncoder passwordEncoder;
 
   public UserResponse registerUser(User user) {
+    // validating
     userRepository.findByEmail(user.getEmail())
       .ifPresent(s -> { throw new EmailAlreadyBeingUsedException(user.getEmail()); });
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setEnabled(false);
     user.setVerificationCode(UUID.randomUUID());
-    // TODO: send email
+    // email
+    mailService.sendEmail(
+      user.getEmail(),
+      "User Verification",
+      String.format(
+        "Click the link http://localhost:8080/user/verify?code=%s to verify your account!",
+        user.getVerificationCode()
+      )
+    );
+    // saving user
     User savedUser = userRepository.save(user);
     return new UserResponse(
       savedUser.getId(),

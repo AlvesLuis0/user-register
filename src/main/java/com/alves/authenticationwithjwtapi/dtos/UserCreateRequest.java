@@ -4,18 +4,22 @@ import com.alves.authenticationwithjwtapi.models.User;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record UserCreateRequest(
 
-  @NotBlank(message = "Name is mandatory.")
+  @NotNull(message = "Name cannot be null.")
+  @NotBlank(message = "Name cannot be blank.")
   String name,
 
-  @NotBlank(message = "Email is mandatory.")
+  @NotNull(message = "Email cannot be null.")
+  @NotBlank(message = "Email cannot be blank.")
   @Email
   String email,
 
-  @NotBlank(message = "Password is mandatory.")
+  @NotNull(message = "Password cannot be null.")
+  @NotBlank(message = "Password cannot be blank.")
   @Size(min = 8, message = "The password must contain at least 8 characters")
   String password
 
