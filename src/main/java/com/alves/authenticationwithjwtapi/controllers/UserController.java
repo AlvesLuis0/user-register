@@ -27,8 +27,8 @@ public class UserController {
   @PostMapping("/register")
   public ResponseEntity<UserResponse> registerUser(@RequestBody UserCreateRequest userCreateRequest) {
     User user = userCreateRequest.toModel();
-    UserResponse userRegistered = userService.registerUser(user);
-    return ResponseEntity.ok().body(userRegistered);
+    User userRegistered = userService.registerUser(user);
+    return ResponseEntity.ok().body(UserResponse.create(userRegistered));
   }
 
   @GetMapping("/verify")

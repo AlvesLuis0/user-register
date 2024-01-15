@@ -7,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.alves.authenticationwithjwtapi.dtos.UserResponse;
 import com.alves.authenticationwithjwtapi.exceptions.EmailAlreadyBeingUsedException;
 import com.alves.authenticationwithjwtapi.exceptions.UserNotFoundException;
 import com.alves.authenticationwithjwtapi.models.User;
@@ -23,7 +22,7 @@ public class UserService implements UserDetailsService {
   private final MailService mailService;
   private final PasswordEncoder passwordEncoder;
 
-  public UserResponse registerUser(User user) {
+  public User registerUser(User user) {
     // validating
     userRepository.findByEmail(user.getEmail())
       .ifPresent(s -> { throw new EmailAlreadyBeingUsedException(user.getEmail()); });
@@ -40,12 +39,7 @@ public class UserService implements UserDetailsService {
       )
     );
     // saving user
-    User savedUser = userRepository.save(user);
-    return new UserResponse(
-      savedUser.getId(),
-      savedUser.getName(),
-      savedUser.getEmail()
-    );
+    return userRepository.save(user);
   }
 
   public void verifyUser(UUID verificationCode) {
