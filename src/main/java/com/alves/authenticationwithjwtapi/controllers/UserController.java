@@ -15,6 +15,7 @@ import com.alves.authenticationwithjwtapi.dtos.UserResponse;
 import com.alves.authenticationwithjwtapi.models.User;
 import com.alves.authenticationwithjwtapi.services.UserService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -25,21 +26,21 @@ public class UserController {
   private final UserService userService;
 
   @PostMapping("/register")
-  public ResponseEntity<UserResponse> registerUser(@RequestBody UserCreateRequest userCreateRequest) {
+  public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserCreateRequest userCreateRequest) {
     User user = userCreateRequest.toModel();
     User userRegistered = userService.registerUser(user);
     return ResponseEntity.ok().body(UserResponse.create(userRegistered));
   }
 
   @GetMapping("/verify")
-  public ResponseEntity<Object> verifyUser(@Param("code") UUID code) {
+  public ResponseEntity<String> verifyUser(@Param("code") UUID code) {
     userService.verifyUser(code);
-    return ResponseEntity.ok().build();
+    return ResponseEntity.ok().body("User verified successfully!");
   }
 
   @GetMapping("/ping")
   public ResponseEntity<Object> ping() {
-    return ResponseEntity.ok().build();
+    return ResponseEntity.ok().body("You're logged in!");
   }
   
 }

@@ -10,6 +10,7 @@ import com.alves.authenticationwithjwtapi.dtos.AuthenticationRequest;
 import com.alves.authenticationwithjwtapi.dtos.AuthenticationResponse;
 import com.alves.authenticationwithjwtapi.services.AuthenticationService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -20,7 +21,7 @@ public class AuthenticationController {
   private final AuthenticationService authenticationService;
 
   @PostMapping("/login")
-  public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest authenticationRequest) {
+  public ResponseEntity<AuthenticationResponse> login(@RequestBody @Valid AuthenticationRequest authenticationRequest) {
     String token = authenticationService.generateToken(authenticationRequest);
     return ResponseEntity.ok().body(new AuthenticationResponse(token));
   }
