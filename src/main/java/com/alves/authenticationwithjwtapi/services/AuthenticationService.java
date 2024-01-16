@@ -5,7 +5,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import com.alves.authenticationwithjwtapi.dtos.AuthenticationRequest;
+import com.alves.authenticationwithjwtapi.dtos.LoginRequest;
 import com.alves.authenticationwithjwtapi.models.User;
 
 import lombok.RequiredArgsConstructor;
@@ -17,12 +17,12 @@ public class AuthenticationService {
   private final TokenService tokenService;
   private final AuthenticationManager authenticationManager;
 
-  public String generateToken(AuthenticationRequest authenticationRequest) {
-    var usernamePassword = new UsernamePasswordAuthenticationToken(
-      authenticationRequest.email(),
-      authenticationRequest.password()
+  public String generateToken(LoginRequest login) {
+    var userPass = new UsernamePasswordAuthenticationToken(
+      login.email(),
+      login.password()
     );
-    Authentication auth = authenticationManager.authenticate(usernamePassword);
+    Authentication auth = authenticationManager.authenticate(userPass);
     String token = tokenService.generateToken((User)auth.getPrincipal());
     return token;
   }

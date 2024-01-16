@@ -23,8 +23,8 @@ public class WebSecurity {
   private final SecurityFilter securityFilter;
 
   @Bean
-  public SecurityFilterChain getSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
-    return httpSecurity
+  public SecurityFilterChain getSecurityFilterChain(HttpSecurity http) throws Exception {
+    return http
       .csrf(csrf -> csrf.disable())
       .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
       .authorizeHttpRequests(authorize -> authorize
@@ -43,8 +43,8 @@ public class WebSecurity {
   }
 
   @Bean
-  public AuthenticationManager getAuthenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-    return authenticationConfiguration.getAuthenticationManager();
+  public AuthenticationManager getAuthenticationManager(AuthenticationConfiguration authConfig) throws Exception {
+    return authConfig.getAuthenticationManager();
   }
   
 }

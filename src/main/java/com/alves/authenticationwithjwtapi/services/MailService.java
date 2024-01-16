@@ -10,14 +10,14 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class MailService {
 
-  private final JavaMailSender javaMailSender;
+  private final JavaMailSender mailSender;
 
   public void sendEmail(String to, String subject, String text) {
-    var simpleMailMessage = new SimpleMailMessage();
-    simpleMailMessage.setTo(to);
-    simpleMailMessage.setSubject(subject);
-    simpleMailMessage.setText(text);
-    javaMailSender.send(simpleMailMessage);
+    var message = new SimpleMailMessage();
+    message.setTo(to);
+    message.setSubject(subject);
+    message.setText(text);
+    mailSender.send(message);
   }
 
 }
