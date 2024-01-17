@@ -12,8 +12,16 @@
       },
       body: JSON.stringify(user)
     };
-    fetch(path, request);
-    alert('Check your email to verify your account');
-    location.assign('/login.html');
+    fetch(path, request)
+      .then(response => {
+        if(response.status == 200) {
+          alert('Check your email to verify your account');
+          location.assign('/login');
+          return;
+        }
+        response.json().then(error => {
+          alert(error.message);
+        });
+      });
   });
 })();
