@@ -29,15 +29,20 @@ public class UserController {
   public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserRequest userRequest) {
     User user = userRequest.toModel();
     User userRegistered = userService.registerUser(user);
-    return ResponseEntity.ok().body(UserResponse.create(userRegistered));
+    return ResponseEntity.ok(UserResponse.create(userRegistered));
   }
 
   @GetMapping("/verify")
   public ResponseEntity<String> verifyUser(@Param("code") UUID code) {
     userService.verifyUser(code);
-    return ResponseEntity.ok().body(
+    return ResponseEntity.ok(
       "User verified successfully! You can log now <a href=\"/login\">here</a>"
     );
+  }
+
+  @GetMapping("/ping")
+  public ResponseEntity<Object> ping() {
+    return ResponseEntity.ok("User logged!");
   }
   
 }

@@ -28,7 +28,7 @@ public class WebSecurity {
       .csrf(csrf -> csrf.disable())
       .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
       .authorizeHttpRequests(authorize -> authorize
-        .requestMatchers(HttpMethod.GET, "/home").authenticated()
+        .requestMatchers(HttpMethod.GET, "/user/ping").authenticated()
         .requestMatchers(HttpMethod.POST, "/user/register").permitAll()
         .requestMatchers(HttpMethod.GET, "/user/verify").permitAll()
         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
