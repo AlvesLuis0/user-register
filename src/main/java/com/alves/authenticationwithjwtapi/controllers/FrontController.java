@@ -12,13 +12,13 @@ public class FrontController {
   }
 
   @GetMapping("/register")
-  public String registerPage(){
+  public String registerPage() {
     return "/register.html";
   }
 
-  @GetMapping("/verify")
-  public String verifyPage() {
-    return "/verify.html";
+  @GetMapping("/home")
+  public String homePage() {
+    return "/home.html";
   }
   
 }

@@ -35,12 +35,9 @@ public class UserController {
   @GetMapping("/verify")
   public ResponseEntity<String> verifyUser(@Param("code") UUID code) {
     userService.verifyUser(code);
-    return ResponseEntity.ok().body("User verified successfully!");
-  }
-
-  @GetMapping("/ping")
-  public ResponseEntity<Object> ping() {
-    return ResponseEntity.ok().body("You're logged in!");
+    return ResponseEntity.ok().body(
+      "User verified successfully! You can log now <a href=\"/login\">here</a>"
+    );
   }
   
 }
