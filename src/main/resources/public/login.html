@@ -19,46 +19,36 @@
 					</div>
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
-							<form class="needs-validation" autocomplete="off">
-								<div class="mb-3">
-									<label class="mb-2 text-muted" for="name">Name</label>
-									<input id="name" type="text" class="form-control" name="name" required autofocus>
-									<div class="invalid-feedback">
-										Name is required	
-									</div>
-								</div>
-
+							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+							<form class="needs-validation" novalidate autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" required>
+									<input id="email" type="email" class="form-control" name="email" required autofocus>
 									<div class="invalid-feedback">
 										Email is invalid
 									</div>
 								</div>
 
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="password">Password</label>
-									<input id="password" type="password" class="form-control" minlength="8" name="password" required>
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="password">Password</label>
+									</div>
+									<input id="password" type="password" minlength="8" class="form-control" name="password" required>
 								    <div class="invalid-feedback">
 								    	Password is required
 							    	</div>
 								</div>
 
-								<p class="form-text text-muted mb-3">
-									By registering you agree with our terms and condition.
-								</p>
-
-								<div class="align-items-center d-flex">
+								<div class="d-flex align-items-center">
 									<button type="submit" class="btn btn-primary ms-auto">
-										Register	
+										Login
 									</button>
 								</div>
 							</form>
 						</div>
 						<div class="card-footer py-3 border-0">
 							<div class="text-center">
-								Already have an account? <a href="/login.html" class="text-dark">Login</a>
+								Don't have an account? <a href="/register.html" class="text-dark">Create One</a>
 							</div>
 						</div>
 					</div>
@@ -71,6 +61,6 @@
 	</section>
 
 	<script src="/js/form.js"></script>
-	<script src="/js/create-user.js"></script>
+	<script src="/js/login.js"></script>
 </body>
 </html>
