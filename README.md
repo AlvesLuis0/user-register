@@ -1,4 +1,4 @@
-![User Register Banner](.github/banner.png)
+![User Register Banner](.github/banner.jpg)
 
 # 👤 User Register
 
