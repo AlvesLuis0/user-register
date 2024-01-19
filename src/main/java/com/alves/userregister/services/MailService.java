@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.services;
+package com.alves.userregister.services;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;

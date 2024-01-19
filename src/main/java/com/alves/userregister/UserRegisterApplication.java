@@ -1,13 +1,13 @@
-package com.alves.authenticationwithjwtapi;
+package com.alves.userregister;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthenticationWithJwtApiApplication {
+public class UserRegisterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthenticationWithJwtApiApplication.class, args);
+		SpringApplication.run(UserRegisterApplication.class, args);
 	}
 
 }

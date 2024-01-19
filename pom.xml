@@ -12,9 +12,9 @@
 	</parent>
 
 	<groupId>com.alves</groupId>
-	<artifactId>authentication-with-jwt-api</artifactId>
+	<artifactId>user-register</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authentication-with-jwt-api</name>
+	<name>user-register</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -91,7 +91,7 @@
 			</plugin>
 		</plugins>
 
-		<finalName>authentication-with-jwt-api</finalName>
+		<finalName>user-register</finalName>
 	</build>
 
 </project>

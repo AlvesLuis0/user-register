@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.controllers;
+package com.alves.userregister.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alves.authenticationwithjwtapi.dtos.LoginRequest;
-import com.alves.authenticationwithjwtapi.dtos.LoginResponse;
-import com.alves.authenticationwithjwtapi.services.AuthenticationService;
+import com.alves.userregister.dtos.LoginRequest;
+import com.alves.userregister.dtos.LoginResponse;
+import com.alves.userregister.services.AuthenticationService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

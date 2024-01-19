@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.controllers;
+package com.alves.userregister.controllers;
 
 import java.util.UUID;
 
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alves.authenticationwithjwtapi.dtos.UserRequest;
-import com.alves.authenticationwithjwtapi.dtos.UserResponse;
-import com.alves.authenticationwithjwtapi.models.User;
-import com.alves.authenticationwithjwtapi.services.UserService;
+import com.alves.userregister.dtos.UserRequest;
+import com.alves.userregister.dtos.UserResponse;
+import com.alves.userregister.models.User;
+import com.alves.userregister.services.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

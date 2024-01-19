@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.config.security;
+package com.alves.userregister.config.security;
 
 import java.io.IOException;
 
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.alves.authenticationwithjwtapi.exceptions.UserNotFoundException;
-import com.alves.authenticationwithjwtapi.repositories.UserRepository;
-import com.alves.authenticationwithjwtapi.services.TokenService;
+import com.alves.userregister.exceptions.UserNotFoundException;
+import com.alves.userregister.repositories.UserRepository;
+import com.alves.userregister.services.TokenService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

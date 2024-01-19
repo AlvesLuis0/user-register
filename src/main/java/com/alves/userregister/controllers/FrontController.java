@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.controllers;
+package com.alves.userregister.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

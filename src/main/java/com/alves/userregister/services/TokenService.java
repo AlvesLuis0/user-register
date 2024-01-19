@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.services;
+package com.alves.userregister.services;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -7,7 +7,7 @@ import java.time.ZoneOffset;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.alves.authenticationwithjwtapi.models.User;
+import com.alves.userregister.models.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -16,7 +16,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 @Service
 public class TokenService {
 
-  private final String ISSUER = "authentication-with-jwt-api";
+  private final String ISSUER = "user-register";
   private final Algorithm ALGORITHM;
 
   public TokenService(@Value("jwt.secret") String SECRET) {

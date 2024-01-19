@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.services;
+package com.alves.userregister.services;
 
 import java.util.UUID;
 
@@ -7,10 +7,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.alves.authenticationwithjwtapi.exceptions.EmailAlreadyBeingUsedException;
-import com.alves.authenticationwithjwtapi.exceptions.UserNotFoundException;
-import com.alves.authenticationwithjwtapi.models.User;
-import com.alves.authenticationwithjwtapi.repositories.UserRepository;
+import com.alves.userregister.exceptions.EmailAlreadyBeingUsedException;
+import com.alves.userregister.exceptions.UserNotFoundException;
+import com.alves.userregister.models.User;
+import com.alves.userregister.repositories.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

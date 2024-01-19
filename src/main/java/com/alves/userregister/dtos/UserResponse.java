@@ -1,6 +1,6 @@
-package com.alves.authenticationwithjwtapi.dtos;
+package com.alves.userregister.dtos;
 
-import com.alves.authenticationwithjwtapi.models.User;
+import com.alves.userregister.models.User;
 
 public record UserResponse(Long id, String name, String email) {
 

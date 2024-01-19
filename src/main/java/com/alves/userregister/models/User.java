@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.models;
+package com.alves.userregister.models;
 
 import java.util.Collection;
 import java.util.UUID;

@@ -1,13 +1,20 @@
-package com.alves.authenticationwithjwtapi.dtos;
+package com.alves.userregister.dtos;
+
+import com.alves.userregister.models.User;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record LoginRequest(
+public record UserRequest(
+
+  @NotNull(message = "Name cannot be null.")
+  @NotBlank(message = "Name cannot be blank.")
+  String name,
 
   @NotNull(message = "Email cannot be null.")
+  @NotBlank(message = "Email cannot be blank.")
   @Email
   String email,
 
@@ -18,6 +25,12 @@ public record LoginRequest(
 
 ) {
 
-  // 
+  public User toModel() {
+    var user = new User();
+    user.setName(name);
+    user.setEmail(email);
+    user.setPassword(password);
+    return user;
+  }
   
 }

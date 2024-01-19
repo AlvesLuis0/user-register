@@ -1,12 +1,12 @@
-package com.alves.authenticationwithjwtapi.services;
+package com.alves.userregister.services;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import com.alves.authenticationwithjwtapi.dtos.LoginRequest;
-import com.alves.authenticationwithjwtapi.models.User;
+import com.alves.userregister.dtos.LoginRequest;
+import com.alves.userregister.models.User;
 
 import lombok.RequiredArgsConstructor;
 

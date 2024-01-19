@@ -1,4 +1,4 @@
-package com.alves.authenticationwithjwtapi.config.security;
+package com.alves.userregister.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
