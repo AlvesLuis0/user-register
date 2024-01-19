@@ -56,7 +56,7 @@ spring.mail.password=asda qwer uiop zxcv vbnm
 mvn package
 
 # Run the application
-java -jar target/user-register
+java -jar target/user-register.jar
 
 # The server will start on port:8080 - access <http://localhost:8080/login> to test
 ```
